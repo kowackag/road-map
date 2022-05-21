@@ -19,8 +19,8 @@ const App = () => {
         <Header />
         <Wrapper>
           <Routes>
-            <Route path="/*" element={<Home />} />
-            <Route path="/route-planner" element={<RoutePlanner />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/planner" element={<RoutePlanner />} />
           </Routes>
         </Wrapper>
       </Router>
