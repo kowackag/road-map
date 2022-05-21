@@ -13,22 +13,28 @@ const GlobalStyle = createGlobalStyle`
         --color-darkShadow: ${(props) => props.theme.colorDarkShadow};
         --color-contrast: ${(props) => props.theme.colorContrast};
         --color-line: ${(props) => props.theme.colorLine};
+        --color-yellow: ${(props) => props.theme.colorYellow};
+        --color-blue: ${(props) => props.theme.colorBlue};
+        --color-red: ${(props) => props.theme.colorRed};
+        --color-green: ${(props) => props.theme.colorGreen};
     }
 
     @font-face {
-        font-family: "Montserrat";
-        font-style: regular;
+        font-family: "Monts";
+        font-style: normal;
         font-weight: 400;
-        src:
+        src: 
         url(${montserratRegularWoff2}) format('woff2'),
         url(${montserratRegularWoff}) format('woff');
+        font-display: swap;
     }
     @font-face {
-        font-family: "Montserrat";
+        font-family: "Monts";
         font-weight: 700;
-        src:
+        src: 
         url(${montserratBoldWoff2}) format('woff2'),
         url(${montserratBoldWoff}) format('woff');
+        font-display: swap;
     }
    
     html {
@@ -39,9 +45,8 @@ const GlobalStyle = createGlobalStyle`
     body {
         height: 100%;
         background: linear-gradient(90deg, var(--color-bgcLight) 0%, var(--color-bgcDark) 100%);
-        font-family: "Montserrat", Verdana, sans-serif;
+        font-family: "Monts", Verdana, sans-serif;
         font-size: 1.6rem;
-        font-size: 40px;
         color: var(--color-darkBlue);
         line-height:1.5;
     }

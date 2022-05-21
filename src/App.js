@@ -1,10 +1,29 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 
-import StyledApp from 'App.styled';
+import Header from 'components/Header/Header';
+import Home from 'components/Home/Home';
+import RoutePlanner from 'components/RoutePlanner/RoutePlanner';
+
+import StyledApp, { Wrapper } from 'App.styled';
+
 const App = () => {
   return (
     <StyledApp>
-      <p>xCCC</p>App
+      <Router>
+        <Header />
+        <Wrapper>
+          <Routes>
+            <Route path="/*" element={<Home />} />
+            <Route path="/route-planner" element={<RoutePlanner />} />
+          </Routes>
+        </Wrapper>
+      </Router>
     </StyledApp>
   );
 };
