@@ -33,18 +33,25 @@ const GlobalStyle = createGlobalStyle`
    
     html {
         font-size: 10px;
+        height: 100%;
     }
 
     body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(90deg, rgb(var(--color-lightShadow)) 0%, rgb(var(--color-darkShadow)) 100%);
+        height: 100%;
+        background: linear-gradient(90deg, var(--color-bgcLight) 0%, var(--color-bgcDark) 100%);
         font-family: "Montserrat", Verdana, sans-serif;
         font-size: 1.6rem;
         font-size: 40px;
-        color: rgb(var(--color-darkBlue));
+        color: var(--color-darkBlue);
         line-height:1.5;
+    }
+
+    #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
     }
 `;
 
