@@ -6,6 +6,7 @@ import RouteForm from 'components/RouteForm/RouteForm';
 
 import StyledRoutePlanner, { Wrapper } from './RoutePlanner.styled';
 import StyledTitle from 'components/Title.styled';
+import MapWrapper from 'components/MapWrapper/MapWrapper';
 
 const RoutePlanner = () => {
 
@@ -24,6 +25,7 @@ const RoutePlanner = () => {
             </Popup>
           </Marker>
         </MapContainer>
+        {/* <MapWrapper /> */}
         <RouteForm />
       </Wrapper>
     </StyledRoutePlanner>
