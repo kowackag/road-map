@@ -10,7 +10,7 @@ const Header = () => {
       <StyledNav>
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/planner">Planner</StyledLink>
-        <StyledLink to="/route">Route</StyledLink>
+        <StyledLink to="/map">Map</StyledLink>
         <StyledLink to="/support">Support</StyledLink>
       </StyledNav>
     </StyledHeader>

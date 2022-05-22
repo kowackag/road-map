@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
 const StyledApp = styled.article`
   width: 90%;
   height: 90%;
-  max-width: 1200px;
+  max-width: 1440px;
   border-radius: 20px;
   background: var(--color-bgcLight);
   box-shadow: 6px 6px 12px var(--color-darkShadow),
