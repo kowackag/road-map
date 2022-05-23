@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import { searchPointAPI } from 'api/HereAPI';
 import { MapPointsContext } from 'context';
 import { validateData } from 'validateData';
+import { useStorage } from 'hooks/useStorage';
 
 import Input from 'components/Input/Input';
 import Submit from 'components/Submit/Submit';
@@ -16,10 +17,12 @@ const RouteForm = () => {
   const { pointA, pointB } = points;
   const [suggestions, setSuggestions] = useState();
   const [errors, setErrors] = useState();
-  const { setMapPoints } = useContext(MapPointsContext);
+  const { setMapPoints, setIsRouting } = useContext(MapPointsContext);
+  const [getFromLS, setToLS] = useStorage();
 
   const changeValue = (e) => {
     e.preventDefault();
+    setIsRouting(false);
     setPoints({ ...points, [e.target.name]: { address: e.target.value } });
   };
 
@@ -58,8 +61,12 @@ const RouteForm = () => {
     const errors = validateData(points);
     setErrors(errors);
     if (Object.keys(errors).length === 0) {
-      setMapPoints([pointA, pointB]);
-      setPoints({});
+      setIsRouting(true);
+      setToLS(points, 'lastRoute');
+      getFromLS('history')
+        ? setToLS([...getFromLS('history'), points], 'history')
+        : setToLS([points], 'history');
+      // setPoints({});
     }
   };
 

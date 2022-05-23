@@ -1,11 +1,11 @@
 export const useStorage = () => {
-  const setItem = (ob, name) => {
+  const setToLS = (ob, name) => {
     localStorage.setItem(name, JSON.stringify(ob));
   };
-  const getItem = (name) => {
+  const getFromLS = (name) => {
     const retrivedObject = JSON.parse(localStorage.getItem(name));
     return retrivedObject;
   };
 
-  return [getItem, setItem];
+  return [getFromLS, setToLS];
 };
