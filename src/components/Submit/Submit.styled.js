@@ -4,10 +4,10 @@ const StyledSubmit = styled.button`
   position: relative;
   display: block;
   padding: 1rem 5rem;
-  margin: 2rem auto;
-  border: 2px solid var(--color-red);
+  margin: 3rem auto 1rem;
+  border: 2px solid var(--color-darkBlue);
   background-color: white;
-  color: var(--color-red);
+  color: var(--color-darkBlue);
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
@@ -22,7 +22,7 @@ const StyledSubmit = styled.button`
     right: 0;
     padding: 1rem;
     border: none;
-    background-color: var(--color-red);
+    background-color: var(--color-darkBlue);
     color: white;
     opacity: 0;
     transition: opacity 0.4s ease-out;

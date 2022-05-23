@@ -1,26 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import StyledInput from './Input.styled';
 
-const Input = ({ onChange, name, value, type = 'text', placeholder }) => {
+const Input = ({ name, value, items, onChange, setValue, placeholder }) => {
+  const [isActive, setIsActive] = useState(false);
+  const [isFocus, setIsFocus] = useState(false);
+  const [isOnMouse, setIsOnMouse] = useState(false);
+
+  const handleOnBlur = () => {
+    setIsFocus(false);
+    isOnMouse || setIsActive(false);
+  };
+  const handleOnMouseLeave = () => {
+    setIsOnMouse(false);
+    isFocus || setIsActive(false);
+  };
+
   return (
-    <StyledInput>
+    <StyledInput active={isActive} onClick={() => setIsActive(!isActive)}>
       <input
-        type={type}
         name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        onFocus={() => {
+          setIsFocus(true);
+        }}
+        onBlur={handleOnBlur}
       />
+      <ul
+        onMouseOver={() => setIsOnMouse(true)}
+        onMouseLeave={handleOnMouseLeave}
+      >
+        {items === undefined || items.length === 0
+          ? null
+          : items.map((el) => (
+              <li
+                key={el.id}
+                onClick={setValue}
+                value={el.title}
+                data-code={el.title}
+                data-name={name}
+                data-lat={el.position.lat}
+                data-lng={el.position.lng}
+              >
+                {el.title}
+              </li>
+            ))}
+      </ul>
     </StyledInput>
   );
 };
 
 Input.propTypes = {
-  type: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string,
+  setValue: PropTypes.func.isRequired,
 };
 
 export default Input;

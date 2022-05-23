@@ -11,7 +11,7 @@ const StyledRoutePlanner = styled.article`
     height: 700px;
   }
   .leaflet-left {
-    left: 250px;
+    left: 300px;
   }
 `;
 export default StyledRoutePlanner;

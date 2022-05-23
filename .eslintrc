@@ -11,7 +11,7 @@
       "warn",
       {
         "singleQuote": true,
-        "printWith": 120,
+        "printWith": 150,
         "endOfLine": "auto"
       }
     ]
