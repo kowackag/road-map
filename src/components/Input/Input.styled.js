@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const StyledInput = styled.div`
   flex-grow: 2;
   margin-right: 2rem;
-  display: block;
+  display: inline-block;
   position: relative;
   border: 1px solid var(--color-line);
 
@@ -40,5 +40,13 @@ const StyledInput = styled.div`
     }
   }
 `;
-
+export const StyledUnit = styled.span`
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 40px;
+  padding: 1rem 0;
+  color: var(--color-darkBlue);
+  font-size: 1.2rem;
+`;
 export default StyledInput;

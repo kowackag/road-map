@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import StyledInput from './Input.styled';
+import StyledInput, { StyledUnit } from './Input.styled';
 
-const Input = ({ name, value, items, onChange, setValue, placeholder }) => {
+const Input = ({
+  name,
+  value,
+  items,
+  onChange,
+  setValue,
+  placeholder,
+  type,
+  min,
+  step,
+  unit,
+}) => {
   const [isActive, setIsActive] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const [isOnMouse, setIsOnMouse] = useState(false);
@@ -20,15 +31,20 @@ const Input = ({ name, value, items, onChange, setValue, placeholder }) => {
   return (
     <StyledInput active={isActive} onClick={() => setIsActive(!isActive)}>
       <input
+        id={name}
         name={name}
         value={value}
         onChange={onChange}
+        type={type}
         placeholder={placeholder}
         onFocus={() => {
           setIsFocus(true);
         }}
         onBlur={handleOnBlur}
+        min={min}
+        step={step}
       />
+      {unit && <StyledUnit>{unit}</StyledUnit>}
       <ul
         onMouseOver={() => setIsOnMouse(true)}
         onMouseLeave={handleOnMouseLeave}
@@ -56,7 +72,7 @@ const Input = ({ name, value, items, onChange, setValue, placeholder }) => {
 Input.propTypes = {
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string,
-  setValue: PropTypes.func.isRequired,
+  setValue: PropTypes.func,
 };
 
 export default Input;

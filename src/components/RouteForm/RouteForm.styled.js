@@ -13,8 +13,7 @@ const StyledRouteForm = styled.form`
   left: 0;
   padding: 2rem;
   width: 300px;
-  border-right: 3px solid var(--color-darkBlue);
-  border-bottom: 3px solid var(--color-darkBlue);
+  border: 3px solid var(--color-darkBlue);
   font-size: 1.3rem;
   color: var(--color-darkBlue);
   background-color: white;
