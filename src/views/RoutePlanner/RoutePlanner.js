@@ -10,12 +10,11 @@ import StyledTitle from 'components/Title.styled';
 const RoutePlanner = () => {
   const { mapPoints, isRouting } = useContext(MapPointsContext);
   const [markerPos, setMarkerPos] = useState([]);
-  console.log('A', markerPos);
-  console.log(`isRouting: ${isRouting}`);
+
   useEffect(() => {
     setMarkerPos(Object.values(mapPoints));
   }, [mapPoints]);
-console.log('mapoin', mapPoints)
+
   return (
     <StyledRoutePlanner>
       <StyledTitle>Start planning route</StyledTitle>

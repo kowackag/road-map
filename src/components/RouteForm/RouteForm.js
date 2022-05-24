@@ -66,7 +66,7 @@ const RouteForm = () => {
       getFromLS('history')
         ? setToLS([...getFromLS('history'), points], 'history')
         : setToLS([points], 'history');
-      // setPoints({});
+      setPoints({});
     }
   };
 

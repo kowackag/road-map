@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 import Routing from 'RoutingMachine';
+import { MapPointsContext } from 'context';
 
 const Map = ({ points, isRouting, center, zoom }) => {
   const { pointA, pointB } = points;
@@ -26,7 +27,9 @@ const Map = ({ points, isRouting, center, zoom }) => {
             <Popup>{pointB.address}</Popup>
           </Marker>
         ) : null}
-        {isRouting && <Routing points={points} />}
+        {isRouting && (
+          <Routing points={points} onRoutesFound={(e) => console.log('e', e)} />
+        )}
       </MapContainer>
     </div>
   );
