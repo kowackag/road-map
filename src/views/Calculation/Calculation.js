@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import innerText from 'react-innertext';
 
 import { MapPointsContext } from 'context';
 import StyledTitle from 'components/Title.styled';
@@ -12,10 +13,12 @@ import { calculator } from 'helpers';
 import Input from 'components/Input/Input';
 
 const Calculation = () => {
-  const { mapPoints, isRouting } = useContext(MapPointsContext);
-  const [price, setPrice] = useState(0.25);
-  const [dist, setDist] = useState(900);
-  const { totalPrice, totalTime } = calculator(dist, price);
+  const { mapPoints, isRouting, distance } = useContext(MapPointsContext);
+  const { pointA, pointB } = mapPoints;
+  const [price, setPrice] = useState(0.15);
+
+
+  const { totalPrice, totalTime } = calculator(distance, price);
   return (
     <StyledCalculation>
       <StyledTitle>Calculation</StyledTitle>
@@ -40,8 +43,14 @@ const Calculation = () => {
         </StyledForm>
         <StyledInfoSection>
           <p>
-            Total distance: <span> {`${totalTime} km`}</span>
+            Total distance:
+            <span
+              //   onRender={(e) => console.log(e.target.innerText)}
+              id="dist"
+            >{distance}</span>
+            <span> km</span>
           </p>
+
           <p>
             Total time:<span> {`${totalTime} days`}</span>
           </p>

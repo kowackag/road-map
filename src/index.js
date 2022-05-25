@@ -6,7 +6,7 @@ import { theme } from 'assets/styles/theme';
 import ResetStyle from 'assets/styles/Reset';
 import GlobalStyle from 'assets/styles/Global';
 
-import App from './App';
+import App from './components/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

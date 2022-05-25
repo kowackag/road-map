@@ -13,12 +13,14 @@ import Header from 'components/Header/Header';
 import Home from 'views/Home/Home';
 import RoutePlanner from 'views/RoutePlanner/RoutePlanner';
 
-import StyledApp, { Wrapper } from 'App.styled';
+import StyledApp, { Wrapper } from 'components/App.styled';
 import Calculation from 'views/Calculation/Calculation';
+import Support from 'views/Support/Support';
 
 const App = () => {
   const [mapPoints, setMapPoints] = useState({ pointA: '', pointB: '' });
   const [isRouting, setIsRouting] = useState(false);
+  const [distance, setDistance] = useState();
   return (
     <MapPointsContext.Provider
       value={{
@@ -26,6 +28,8 @@ const App = () => {
         setMapPoints,
         isRouting,
         setIsRouting,
+        distance,
+        setDistance
       }}
     >
       <StyledApp>
@@ -33,9 +37,10 @@ const App = () => {
           <Header />
           <Wrapper>
             <Routes>
-              <Route path="/" element={<Home limit="6"/>} />
+              <Route path="/" element={<Home limit="6" />} />
               <Route path="/route-planner" element={<RoutePlanner />} />
               <Route path="/calculation" element={<Calculation />} />
+              <Route path="/support" element={<Support />} />
             </Routes>
           </Wrapper>
         </Router>

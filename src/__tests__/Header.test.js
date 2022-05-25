@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 import Header from 'components/Header/Header';
-import App from 'App';
+import App from 'components/App';
 
 describe('Header', () => {
   test('check if all links are displayed', () => {
