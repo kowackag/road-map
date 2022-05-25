@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
-  display: grid;
-  grid-template-columns: 230px 1fr;
+  @media (min-width: 740px) {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+  }
 `;
 
 export const StyledNav = styled.nav`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, auto);
   grid-template-rows: 1fr;
   text-align: center;
 `;
@@ -18,7 +20,7 @@ export const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  padding: 0.8rem;
   text-decoration: none;
 
   &:visited {
@@ -62,7 +64,10 @@ export const StyledLink = styled(NavLink)`
     border-bottom: 3px solid var(--color-blue);
     &::after {
       background-color: var(--color-blue);
-      border-top-right-radius: 20px;
+
+      @media (min-width: 740px) {
+        border-top-right-radius: 20px;
+      }
     }
   }
   &.active {
@@ -74,5 +79,9 @@ export const StyledLink = styled(NavLink)`
     &::after {
       opacity: 1;
     }
+  }
+
+  @media (min-width: 740px) {
+    font-size: 1.8rem;
   }
 `;

@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
-const StyledSupport = styled.div`
+const StyledSupport = styled.article`
   ul {
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
   li {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    line-height: 2;
+    list-style: none;
+    @media (min-width: 740px) {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+    }
+  }
+  p {
+    margin-bottom: 2rem;
   }
 `;
 

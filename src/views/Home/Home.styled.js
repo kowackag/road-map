@@ -6,6 +6,9 @@ const StyledHome = styled.div`
     line-height: 1.8;
     list-style: none;
     color: var(--color-darkBlue);
+    li {
+      margin-bottom: 1rem;
+    }
     a {
       text-decoration: none;
       &:visited {

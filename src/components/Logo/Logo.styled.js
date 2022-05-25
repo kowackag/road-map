@@ -5,8 +5,6 @@ const StyledLogo = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1rem 3rem;
-  width: 230px;
-  border-top-left-radius: 20px;
   font-size: 3rem;
   line-height: 0.9;
   background-color: var(--color-darkBlue);
@@ -16,6 +14,10 @@ const StyledLogo = styled.div`
   }
   p:last-child {
     font-size: 1.6rem;
+  }
+
+  @media (min-width: 740px) {
+    border-top-left-radius: 20px;
   }
 `;
 

@@ -11,15 +11,16 @@ export const StyledForm = styled.form`
 export const StyledInfoSection = styled.section`
   margin: 2rem;
   span {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     color: var(--color-red);
+    @media (min-width: 740px) {
+      font-size: 3.5rem;
+    }
   }
 `;
 
-const StyledCalculation = styled.div`
-  font-size: 1.8rem;
+const StyledCalculation = styled.article`
   .leaflet-container {
-    position: relative;
     width: 100%;
     height: 500px;
     border: 3px solid var(--color-green);
@@ -27,9 +28,8 @@ const StyledCalculation = styled.div`
   .leaflet-left {
     left: 0;
   }
+
   .leaflet-routing-container {
-    max-height: 300px;
-    overflow-y: scroll;
     background-color: white;
   }
 `;

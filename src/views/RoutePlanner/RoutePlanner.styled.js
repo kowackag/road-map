@@ -12,14 +12,7 @@ const StyledRoutePlanner = styled.article`
     border: 3px solid var(--color-red);
   }
   .leaflet-left {
-    left: 300px;
-  }
-  .leaflet-routing-container {
-    max-height: 300px;
-    overflow-y: scroll;
-    &:hover {
-      background-color: white;
-    }
+    left: 280px;
   }
 `;
 export default StyledRoutePlanner;

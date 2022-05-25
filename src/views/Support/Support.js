@@ -31,8 +31,8 @@ const Support = () => {
           </li>
         ))}
       </ul>
+      <p>If you would like to visit my GitHub: </p>
       <p>
-        If you would like to visit my GitHub:
         <a href="https://github.com/kowackag"> github.com/kowackag</a>
       </p>
     </StyledSupport>
