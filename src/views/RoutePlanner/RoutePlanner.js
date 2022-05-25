@@ -21,7 +21,7 @@ const RoutePlanner = () => {
       setMapPoints(lastRoute);
       setIsRouting(true);
     }
-  }, []);
+  }, [getFromLS, setMapPoints, pointA, pointB, setIsRouting]);
 
   return (
     <StyledRoutePlanner>
