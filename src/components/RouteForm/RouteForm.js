@@ -15,8 +15,6 @@ import StyledRouteForm, { Wrapper } from './RouteForm.styled';
 const RouteForm = () => {
   const { mapPoints, setMapPoints, setIsRouting, setDistance } =
     useContext(MapPointsContext);
-    console.log('jjjjjjjjjjjjjjjjjjjjjjj')
-    console.log(mapPoints)
   const [points, setPoints] = useState(mapPoints);
   const { pointA, pointB } = points;
   const [suggestions, setSuggestions] = useState();

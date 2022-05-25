@@ -11,12 +11,6 @@ const RoutePlanner = () => {
   const [getFromLS, setToLS] = useStorage();
   const { mapPoints, setMapPoints, isRouting, setIsRouting } =
     useContext(MapPointsContext);
-  // const { pointA, pointB } = mapPoints;
-  // const [markerPos, setMarkerPos] = useState([]);
-
-  // useEffect(() => {
-  //   setMarkerPos(Object.values(mapPoints));
-  // }, [mapPoints, pointA, pointB]);
 
   useEffect(() => {
     const lastRoute = getFromLS('lastRoute');
@@ -25,7 +19,7 @@ const RoutePlanner = () => {
       setIsRouting(true);
     }
   }, []);
-console.log(mapPoints)
+
   return (
     <StyledRoutePlanner>
       <StyledTitle>Start planning route</StyledTitle>
