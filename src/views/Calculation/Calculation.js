@@ -1,33 +1,26 @@
-import React, { useState, useRef, useContext, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import innerText from 'react-innertext';
+import React, { useContext } from 'react';
 
 import { MapPointsContext } from 'context';
-import StyledTitle from 'components/Title.styled';
+import { calculator } from 'helpers';
+
 import Map from 'components/Map/Map';
+import Input from 'components/Input/Input';
+
+import StyledTitle from 'components/Title.styled';
 import StyledCalculation, {
   StyledForm,
   StyledInfoSection,
 } from './Calculation.styled';
-import { calculator } from 'helpers';
-import Input from 'components/Input/Input';
 
 const Calculation = () => {
-  const { mapPoints, isRouting, distance, price, setPrice } =
-    useContext(MapPointsContext);
-
+  const { distance, price, setPrice } = useContext(MapPointsContext);
   const { totalPrice, totalTime } = calculator(distance, price);
 
   return (
     <StyledCalculation>
       <StyledTitle>Calculation</StyledTitle>
       <>
-        <Map
-          points={mapPoints}
-          isRouting={isRouting}
-          center={{ lat: 52.237049, lng: 21.017532 }}
-          zoom={6}
-        />
+        <Map center={{ lat: 52.237049, lng: 21.017532 }} zoom={4} />
         <StyledForm>
           <label htmlFor="price">Set price per kilometer </label>
           <Input
@@ -57,5 +50,5 @@ const Calculation = () => {
     </StyledCalculation>
   );
 };
-Calculation.propTypes = {};
+
 export default Calculation;

@@ -10,7 +10,6 @@ export const StyledForm = styled.form`
 
 export const StyledInfoSection = styled.section`
   margin: 2rem;
-  /* line-height: 2; */
   span {
     font-size: 3.5rem;
     color: var(--color-red);

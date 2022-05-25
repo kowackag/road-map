@@ -24,6 +24,7 @@ const Input = ({
     setIsFocus(false);
     isOnMouse || setIsActive(false);
   };
+
   const handleOnMouseLeave = () => {
     setIsOnMouse(false);
     isFocus || setIsActive(false);
@@ -71,9 +72,18 @@ const Input = ({
 };
 
 Input.propTypes = {
-  onChange: PropTypes.func.isRequired,
   name: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  items: PropTypes.array,
+  onChange: PropTypes.func.isRequired,
   setValue: PropTypes.func,
+  placeholder: PropTypes.string,
+  type: PropTypes.string,
+  min: PropTypes.number,
+  step: PropTypes.string,
+  unit: PropTypes.string,
+  isActive: PropTypes.bool,
+  setIsActive: PropTypes.func,
 };
 
 export default Input;

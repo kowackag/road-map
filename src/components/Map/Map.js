@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
-
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import {
-  MapContainer,
-  TileLayer,
-  Popup,
-  Marker,
-  useMapEvents,
-} from 'react-leaflet';
-import Routing from 'RoutingMachine';
-import { MapPointsContext } from 'context';
+import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 
-const Map = ({ points, isRouting, center, zoom }) => {
-  const { pointA, pointB } = points;
+import { MapPointsContext } from 'context';
+import Routing from 'components/RoutingMachine';
+
+const Map = ({ center, zoom = 6 }) => {
+  const { mapPoints, isRouting } = useContext(MapPointsContext);
+  const { pointA, pointB } = mapPoints;
   return (
     <MapContainer
       center={[center.lat, center.lng]}
@@ -33,9 +28,14 @@ const Map = ({ points, isRouting, center, zoom }) => {
           <Popup>{pointB.address}</Popup>
         </Marker>
       ) : null}
-      {isRouting && pointA && pointB ? <Routing points={points} /> : null}
+      {isRouting && pointA && pointB ? <Routing /> : null}
     </MapContainer>
   );
 };
-Map.propTypes = {};
+
+Map.propTypes = {
+  center: PropTypes.object.isRequired,
+  zoom: PropTypes.number,
+};
+
 export default Map;

@@ -1,14 +1,14 @@
+import React, { useContext } from 'react';
 import L from 'leaflet';
 import { createControlComponent } from '@react-leaflet/core';
 import 'leaflet-routing-machine';
-import Leaflet from 'leaflet';
-import { MapPointsContext } from 'context';
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 
-const Routing = ({ points }) => {
-  const { pointA, pointB } = points;
-  const { setDistance } = useContext(MapPointsContext);
+import { MapPointsContext } from 'context';
+
+const Routing = () => {
+  const { mapPoints, setDistance } = useContext(MapPointsContext);
+  const { pointA, pointB } = mapPoints;
+
   const createRoutineMachineLayer = () => {
     const instance = L.Routing.control({
       waypoints: [

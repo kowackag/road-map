@@ -11,4 +11,5 @@ const StyledSupport = styled.div`
     line-height: 2;
   }
 `;
+
 export default StyledSupport;

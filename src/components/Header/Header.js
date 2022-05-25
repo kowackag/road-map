@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { StyledHeader, StyledNav, StyledLink } from './Header.styled';
 import Logo from 'components/Logo/Logo';
+
+import { StyledHeader, StyledNav, StyledLink } from './Header.styled';
 
 const Header = () => {
   return (

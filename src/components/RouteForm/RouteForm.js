@@ -81,14 +81,14 @@ const RouteForm = () => {
     {
       name: 'pointA',
       value: pointA ? pointA.address : '',
-      items: suggestions ? suggestions.pointA : '',
+      items: suggestions ? suggestions.pointA : [],
       err: errors ? errors.pointA : '',
       label: 'Start point',
     },
     {
       name: 'pointB',
       value: pointB ? pointB.address : '',
-      items: suggestions ? suggestions.pointB : '',
+      items: suggestions ? suggestions.pointB : [],
       err: errors ? errors.pointB : '',
       label: 'Destination',
     },

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   position: relative;
 `;
+
 const StyledRoutePlanner = styled.article`
   height: 100%;
   .leaflet-container {

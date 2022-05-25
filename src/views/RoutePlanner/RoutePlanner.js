@@ -1,20 +1,23 @@
-import React, { useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
-import Map from 'components/Map/Map';
+import React, { useEffect, useContext } from 'react';
+
+import { MapPointsContext } from 'context';
+
 import { useStorage } from 'hooks/useStorage';
 import RouteForm from 'components/RouteForm/RouteForm';
-import { MapPointsContext } from 'context';
-import StyledRoutePlanner, { Wrapper } from './RoutePlanner.styled';
+import Map from 'components/Map/Map';
+
 import StyledTitle from 'components/Title.styled';
+import StyledRoutePlanner, { Wrapper } from './RoutePlanner.styled';
 
 const RoutePlanner = () => {
-  const [getFromLS, setToLS] = useStorage();
-  const { mapPoints, setMapPoints, isRouting, setIsRouting } =
+  const [getFromLS] = useStorage();
+  const { mapPoints, setMapPoints, setIsRouting } =
     useContext(MapPointsContext);
+  const { pointA, pointB } = mapPoints;
 
   useEffect(() => {
     const lastRoute = getFromLS('lastRoute');
-    if (lastRoute) {
+    if (lastRoute && !pointA && !pointB) {
       setMapPoints(lastRoute);
       setIsRouting(true);
     }
@@ -24,16 +27,11 @@ const RoutePlanner = () => {
     <StyledRoutePlanner>
       <StyledTitle>Start planning route</StyledTitle>
       <Wrapper>
-        <Map
-          points={mapPoints}
-          isRouting={isRouting}
-          center={{ lat: 52.237049, lng: 21.017532 }}
-          zoom={6}
-        />
+        <Map center={{ lat: 52.237049, lng: 21.017532 }} />
         <RouteForm />
       </Wrapper>
     </StyledRoutePlanner>
   );
 };
-RoutePlanner.propTypes = {};
+
 export default RoutePlanner;
