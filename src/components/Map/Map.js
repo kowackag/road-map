@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 
@@ -8,7 +8,6 @@ import Routing from 'components/RoutingMachine';
 import StyledMap from './Map.styled';
 
 const Map = ({ center, zoom = 6 }) => {
-  const [map, setMap] = useState(null);
   const { mapPoints, isRouting } = useContext(MapPointsContext);
   const { pointA, pointB } = mapPoints;
   return (
@@ -17,7 +16,6 @@ const Map = ({ center, zoom = 6 }) => {
         center={[center.lat, center.lng]}
         zoom={zoom}
         scrollWheelZoom={true}
-        whenCreated={(map) => setMap(map)}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

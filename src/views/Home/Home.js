@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useStorage } from 'hooks/useStorage';
@@ -12,7 +12,13 @@ import StyledTitle from 'components/Title.styled';
 
 const Home = () => {
   const [getFromLS] = useStorage();
-  const [historyList, setHistoryList] = useState([]);
+
+  let historyFromLS = getFromLS('history');
+  if (historyFromLS === null) {
+    historyFromLS = [];
+  }
+  const [historyList] = useState(historyFromLS);
+
   const { setMapPoints, setIsRouting } = useContext(MapPointsContext);
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(historyList.length);
@@ -21,11 +27,6 @@ const Home = () => {
     setMapPoints({ pointA, pointB });
     setIsRouting(true);
   };
-
-  useEffect(() => {
-    const history = getFromLS('history');
-    if (history) setHistoryList(history);
-  }, []);
 
   return (
     <PaginationContext.Provider
