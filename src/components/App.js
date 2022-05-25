@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import { MapPointsContext } from 'context';
-import { useStorage } from 'hooks/useStorage';
 
 import Header from 'components/Header/Header';
 import Home from 'views/Home/Home';
@@ -40,7 +39,7 @@ const App = () => {
           <Header />
           <Wrapper>
             <Routes>
-              <Route path="/" element={<Home limit="6" />} />
+              <Route path="/*" element={<Home />} />
               <Route path="/route-planner" element={<RoutePlanner />} />
               <Route path="/calculation" element={<Calculation />} />
               <Route path="/support" element={<Support />} />

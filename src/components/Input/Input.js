@@ -21,8 +21,10 @@ const Input = ({
   const [isOnMouse, setIsOnMouse] = useState(false);
 
   const handleOnBlur = () => {
-    setIsFocus(false);
-    isOnMouse || setIsActive(false);
+    if (setIsActive) {
+      setIsFocus(false);
+      isOnMouse || setIsActive(false);
+    }
   };
 
   const handleOnMouseLeave = () => {

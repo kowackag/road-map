@@ -1,11 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet';
 
 import { MapPointsContext } from 'context';
 import Routing from 'components/RoutingMachine';
 
+import styled from 'styled-components';
+
+const StyledLoading = styled.p`
+  position: absolute;
+  z-index: 2000;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  letter-spacing: 6px;
+  color: var(--color-red);
+  color: black;
+  font-weight: bold;
+  font-style: italic;
+`;
+
 const Map = ({ center, zoom = 6 }) => {
+  const [map, setMap] = useState(null);
   const { mapPoints, isRouting } = useContext(MapPointsContext);
   const { pointA, pointB } = mapPoints;
   return (
@@ -13,6 +31,7 @@ const Map = ({ center, zoom = 6 }) => {
       center={[center.lat, center.lng]}
       zoom={zoom}
       scrollWheelZoom={true}
+      whenCreated={(map) => setMap(map)}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -28,7 +47,11 @@ const Map = ({ center, zoom = 6 }) => {
           <Popup>{pointB.address}</Popup>
         </Marker>
       ) : null}
-      {isRouting && pointA && pointB ? <Routing /> : null}
+      {isRouting && pointA && pointB ? (
+        <Routing />
+      ) : (
+        <StyledLoading>Loading...</StyledLoading>
+      )}
     </MapContainer>
   );
 };

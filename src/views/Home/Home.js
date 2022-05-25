@@ -11,7 +11,7 @@ import StyledHome from './Home.styled';
 import StyledTitle from 'components/Title.styled';
 
 const Home = () => {
-  const [getFromLS, setToLS] = useStorage();
+  const [getFromLS] = useStorage();
   const [historyList, setHistoryList] = useState([]);
   const { setMapPoints, setIsRouting } = useContext(MapPointsContext);
   const [page, setPage] = useState(1);
@@ -54,5 +54,5 @@ const Home = () => {
     </PaginationContext.Provider>
   );
 };
-Home.propTypes = {};
+
 export default Home;
