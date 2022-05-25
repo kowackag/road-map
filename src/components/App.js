@@ -21,6 +21,7 @@ const App = () => {
   const [mapPoints, setMapPoints] = useState({ pointA: '', pointB: '' });
   const [isRouting, setIsRouting] = useState(false);
   const [distance, setDistance] = useState();
+  const [price, setPrice] = useState(0.15);
   return (
     <MapPointsContext.Provider
       value={{
@@ -29,7 +30,9 @@ const App = () => {
         isRouting,
         setIsRouting,
         distance,
-        setDistance
+        setDistance,
+        price,
+        setPrice,
       }}
     >
       <StyledApp>

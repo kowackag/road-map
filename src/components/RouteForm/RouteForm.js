@@ -13,23 +13,29 @@ import Error from 'components/Error/Error';
 import StyledRouteForm, { Wrapper } from './RouteForm.styled';
 
 const RouteForm = () => {
-  const [points, setPoints] = useState({});
+  const { mapPoints, setMapPoints, setIsRouting, setDistance } =
+    useContext(MapPointsContext);
+  const [points, setPoints] = useState(mapPoints);
   const { pointA, pointB } = points;
   const [suggestions, setSuggestions] = useState();
   const [errors, setErrors] = useState();
-  const { setMapPoints, setIsRouting } = useContext(MapPointsContext);
+  const [isActive, setIsActive] = useState(false);
   const [getFromLS, setToLS] = useStorage();
 
   const changeValue = (e) => {
     e.preventDefault();
     setIsRouting(false);
-    setPoints({ ...points, [e.target.name]: { address: e.target.value } });
+    setPoints({
+      ...mapPoints,
+      [e.target.name]: { address: e.target.value },
+    });
   };
 
   const searchPoint = (e) => {
     e.preventDefault();
     changeValue(e);
     if (e.target.value.length > 2) {
+      setIsActive(true);
       searchPointAPI(e.target.value).then((resp) =>
         setSuggestions({ ...suggestions, [e.target.name]: resp.items })
       );
@@ -53,7 +59,9 @@ const RouteForm = () => {
 
   const clearValue = (e) => {
     e.preventDefault();
+    setMapPoints({ ...points, [e.currentTarget.dataset.name]: '' });
     setPoints({ ...points, [e.currentTarget.dataset.name]: '' });
+    setDistance('');
   };
 
   const onSubmit = (e) => {
@@ -66,7 +74,6 @@ const RouteForm = () => {
       getFromLS('history')
         ? setToLS([...getFromLS('history'), points], 'history')
         : setToLS([points], 'history');
-      setPoints({});
     }
   };
 
@@ -99,6 +106,8 @@ const RouteForm = () => {
                 name={name}
                 value={value}
                 items={items}
+                isActive={isActive}
+                setIsActive={setIsActive}
                 placeholder="City, Street No."
                 onChange={searchPoint}
                 setValue={setValue}

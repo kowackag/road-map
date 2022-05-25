@@ -13,40 +13,6 @@ import { MapPointsContext } from 'context';
 
 const Map = ({ points, isRouting, center, zoom }) => {
   const { pointA, pointB } = points;
-
-  function LocationMarker() {
-    const [position, setPosition] = useState(null);
-    const map = useMapEvents({
-      click() {
-        map.locate();
-      },
-      locationfound(e) {
-        setPosition(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
-      },
-      routesfound(e) {
-        const routes = e.routes;
-        const summary = routes[0].summary;
-        console.log(summary.totalDistance);
-        const distEl = document.getElementById('dist');
-        if (distEl)
-          distEl.innerText = (summary.totalDistance / 1000).toFixed(2);
-      },
-    });
-    map.on('routesfound', function (e) {
-      const routes = e.routes;
-      const summary = routes[0].summary;
-      console.log(summary.totalDistance);
-      const distEl = document.getElementById('dist');
-      if (distEl) distEl.innerText = (summary.totalDistance / 1000).toFixed(2);
-    });
-    return position === null ? null : (
-      <Marker position={position}>
-        <Popup>You are here</Popup>
-      </Marker>
-    );
-  }
-
   return (
     <MapContainer
       center={[center.lat, center.lng]}
@@ -67,8 +33,7 @@ const Map = ({ points, isRouting, center, zoom }) => {
           <Popup>{pointB.address}</Popup>
         </Marker>
       ) : null}
-      <LocationMarker />
-      {(isRouting && pointA && pointB) ? <Routing points={points} /> : null}
+      {isRouting && pointA && pointB ? <Routing points={points} /> : null}
     </MapContainer>
   );
 };

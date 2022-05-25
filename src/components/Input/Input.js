@@ -14,8 +14,9 @@ const Input = ({
   min,
   step,
   unit,
+  isActive,
+  setIsActive,
 }) => {
-  const [isActive, setIsActive] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const [isOnMouse, setIsOnMouse] = useState(false);
 
@@ -29,7 +30,7 @@ const Input = ({
   };
 
   return (
-    <StyledInput active={isActive} onClick={() => setIsActive(!isActive)}>
+    <StyledInput active={isActive}>
       <input
         id={name}
         name={name}

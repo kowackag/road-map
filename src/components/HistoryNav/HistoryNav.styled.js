@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledHistoryNav = styled.div`
   ul {
-      margin-top: 3rem;
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
     list-style: none;

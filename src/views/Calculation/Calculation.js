@@ -13,12 +13,11 @@ import { calculator } from 'helpers';
 import Input from 'components/Input/Input';
 
 const Calculation = () => {
-  const { mapPoints, isRouting, distance } = useContext(MapPointsContext);
-  const { pointA, pointB } = mapPoints;
-  const [price, setPrice] = useState(0.15);
-
+  const { mapPoints, isRouting, distance, price, setPrice } =
+    useContext(MapPointsContext);
 
   const { totalPrice, totalTime } = calculator(distance, price);
+
   return (
     <StyledCalculation>
       <StyledTitle>Calculation</StyledTitle>
@@ -44,18 +43,14 @@ const Calculation = () => {
         <StyledInfoSection>
           <p>
             Total distance:
-            <span
-              //   onRender={(e) => console.log(e.target.innerText)}
-              id="dist"
-            >{distance}</span>
-            <span> km</span>
+            <span>{distance ? `${distance} km` : ''}</span>
           </p>
 
           <p>
-            Total time:<span> {`${totalTime} days`}</span>
+            Total time:<span>{totalTime ? `${totalTime} days` : ''}</span>
           </p>
           <p>
-            Total price :<span> {`${totalPrice} euro`}</span>
+            Total price :<span>{distance ? `${totalPrice} euro` : ''}</span>
           </p>
         </StyledInfoSection>
       </>
