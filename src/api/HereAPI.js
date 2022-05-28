@@ -1,5 +1,6 @@
 const url = 'v1';
-const key = process.env.REACT_APP_HERE_APIKEY;
+// const key = process.env.REACT_APP_HERE_APIKEY;
+const key = 'pDL1OyYAJMn9lohupZN7h8Y4IgMxJju7WY9LH3KS1WQ';
 
 const handleErrors = (resp) => {
   if (!resp.ok) {

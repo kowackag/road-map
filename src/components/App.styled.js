@@ -8,17 +8,16 @@ export const Wrapper = styled.div`
   }
 `;
 const StyledApp = styled.article`
+  min-height: 700px;
   width: 100%;
-  height: 100%;
   max-width: 1440px;
-  border-radius: 20px;
-  background: var(--color-bgcLight);
-  box-shadow: 6px 6px 12px var(--color-darkShadow),
-    -6px -6px 12px var(--color-darkShadow);
 
   @media (min-width: 740px) {
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    border-radius: 20px;
+    background: var(--color-bgcLight);
+    box-shadow: 6px 6px 12px var(--color-darkShadow),
+      -6px -6px 12px var(--color-darkShadow);
   }
 `;
 export default StyledApp;

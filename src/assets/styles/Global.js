@@ -39,11 +39,11 @@ const GlobalStyle = createGlobalStyle`
    
     html {
         font-size: 10px;
-        height: 100vh;
+        height: 100%;
+        height: auto;
     }
 
     body {
-        height: 100%;
         background: linear-gradient(90deg, var(--color-bgcLight) 0%, var(--color-bgcDark) 100%);
         font-family: "Monts", Verdana, sans-serif;
         font-size: 1.6rem;
@@ -52,11 +52,12 @@ const GlobalStyle = createGlobalStyle`
     }
 
     #root {
+        padding: 4rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
         width: 100%;
+        height:100%;
     }
 `;
 
