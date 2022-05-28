@@ -1,4 +1,4 @@
-![](./public/calculation.jpg)
+![](./public/Calculation.jpg)
 
 # Calculator of worstation price
 
@@ -13,6 +13,7 @@
 [💡 My process](#💡-my-process)
   - [Technologies](#Technologies)
   - [Solutions provided in the project](#Solutions-provided-in-the-project)
+
   - [Useful resources](#useful-resources)
 
 [Screenshot](#screenshot)
