@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+![](./public/calculation.jpg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Calculator of worstation price
 
-## Available Scripts
+&nbsp;
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+[⭐ Overview](#⭐-overview)
+  - [Instalation](#Installation-💿)
+  - [Links](#links)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[💡 My process](#💡-my-process)
+  - [Technologies](#Technologies)
+  - [Solutions provided in the project](#Solutions-provided-in-the-project)
+  - [Useful resources](#useful-resources)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[Screenshot](#screenshot)
 
-### `npm test`
+[🙋‍♂️ Author](#🙋‍♂️-author)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+&nbsp;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⭐ Overview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+&nbsp;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Installation 💿**
 
-### `npm run eject`
+The project uses [node](https://nodejs.org/en/), [npm](https://www.npmjs.com/), [CRA](https://create-react-app.dev/) and [whatwg-fetch](https://github.com/github/fetch).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Having them installed, type into the terminal: 
+```
+npm i
+```
+Then, you may run webpack typing in the terminal:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+App is available using the following addresses:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+http://localhost:3000
 
-## Learn More
+&nbsp;
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Links:**
+- [GitHub](https://github.com/kowackag/road-map)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+&nbsp;
 
-### Code Splitting
+### **Technologies:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+&nbsp;
+  
+### **Solutions provided in the project:**
+- HTML:
+    - The project was built using semantic HTML5 markup.
+- CSS:
+    - The css styles are created using `styled-components`.
+    - The `Custom Checkbox` and `Dropdown` was created.
+    
+- JS:
+    - ES2015+ (arrow functions, destructuring, spread operator) was used.
+    - To store all communication with the API in one place, the function DataAPI was created (in the separated file `DataAPI.js`).
+    - Communication with API is based on `fetch()` method.
+    - To run the project using browsers that do not support `fetch()` method, package `whatwg-fetch` was used.
+    - All fields are validated .
+- React:
+    - The following hooks were used: `useState`, `useEffect`, `useRef`, `useContext` and `Custom Hook`.
+    - Components are split and kept in smaller ones.
+    - `Font Awesome` ikons was used in  React app thanks to `@fortawesome/react-fontawesome`.
+    - I used from `react-to-print` to add possibility to print effects of application.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+I had opted to use `styled-components` as a solution for managing the CSS.
 
-### Advanced Configuration
+To make coding with `styled-component` more comfortable, I used a special Extension in Visual Studio Code `vscode-styled-components`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+I used the `createGlobalStyle` function from styled-components and added reset style and some global styles (`Reset.js` and `Global.js`)
 
-### Deployment
+Data during working app are saved and store in [localStorage](http://kursjs.pl/kurs/storage/storage.php) built into a web browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+&nbsp;
 
-### `npm run build` fails to minify
+The custom hook `useStorage` was created, to provide methods for saving and reading data from localStorage:
+```
+export const useStorage = () => {
+  const setToLS = (ob, name) => {
+    localStorage.setItem(name, JSON.stringify(ob));
+  };
+  const getFromLS = (name) => {
+    const retrivedObject = JSON.parse(localStorage.getItem(name));
+    return retrivedObject;
+  };
+  return [getFromLS, setToLS];
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The hook `useStorage` was used in Components:
+```
+const [getFromLS, setToLS] = useStorage();
+```
+
+### **Useful resources:**
+
+- [Google Font](https://fonts.google.com/specimen/Roboto) - 
+- [Font Avesome](https://fontawesome.com/)
+
+&nbsp;
+
+## 🙋‍♂️ Author
+
+The project was made by Małgorzata Kowacka.
+- kowackag@gmail.com
+- GitHub - [kowackag](https://github.com/kowackag)
+- Linked - [Małgorzata Kowacka](https://www.linkedin.com/in/malgorzata-kowacka)
+
+ **If you have any questions do not hesitate to contact me.**
+
+&nbsp;
