@@ -8,7 +8,9 @@ import { MapPointsContext } from 'context';
 const Routing = () => {
   const { mapPoints, setDistance } = useContext(MapPointsContext);
   const { pointA, pointB } = mapPoints;
-  const key = process.env.REACT_APP_MAPBOX_APIKEY;
+  // const key = process.env.REACT_APP_MAPBOX_APIKEY;
+  const key =
+    'pk.eyJ1Ijoia293YWNrYWciLCJhIjoiY2wzbHh2bGVlMDJmNzNpbHU3cGVvN3g1cSJ9.M4cGlnpZXCeH8cjZAwaqtg';
   const createRoutineMachineLayer = () => {
     const instance = L.Routing.control({
       waypoints: [
