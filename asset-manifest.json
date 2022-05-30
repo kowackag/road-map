@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/road-map/static/js/main.96ed7d6e.js",
-    "static/media/montserrat-bold-webfont.woff": "/road-map/static/media/montserrat-bold-webfont.38864680029a7dbd6d63.woff",
-    "static/media/montserrat-regular-webfont.woff": "/road-map/static/media/montserrat-regular-webfont.434995e8df1696991e64.woff",
-    "static/media/montserrat-bold-webfont.woff2": "/road-map/static/media/montserrat-bold-webfont.b0b1f23d2fd584aae1d5.woff2",
-    "static/media/montserrat-regular-webfont.woff2": "/road-map/static/media/montserrat-regular-webfont.7ee451863e0f3305bf97.woff2",
-    "index.html": "/road-map/index.html",
-    "main.96ed7d6e.js.map": "/road-map/static/js/main.96ed7d6e.js.map"
+    "main.js": "./static/js/main.6590d724.js",
+    "static/media/montserrat-bold-webfont.woff": "./static/media/montserrat-bold-webfont.38864680029a7dbd6d63.woff",
+    "static/media/montserrat-regular-webfont.woff": "./static/media/montserrat-regular-webfont.434995e8df1696991e64.woff",
+    "static/media/montserrat-bold-webfont.woff2": "./static/media/montserrat-bold-webfont.b0b1f23d2fd584aae1d5.woff2",
+    "static/media/montserrat-regular-webfont.woff2": "./static/media/montserrat-regular-webfont.7ee451863e0f3305bf97.woff2",
+    "index.html": "./index.html",
+    "main.6590d724.js.map": "./static/js/main.6590d724.js.map"
   },
   "entrypoints": [
-    "static/js/main.96ed7d6e.js"
+    "static/js/main.6590d724.js"
   ]
 }
